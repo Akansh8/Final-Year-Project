@@ -9,14 +9,19 @@ class DeterMineChromaticNumber:
         return True
 
     def solve(self, node, color, m, N, graph):
+        # base condition
         if node == N:
             return True
         i = 1
         while i <= m:
+            # if it is safe to color current vertex with ith color
             if self.isSafe(node, color, graph, N, i):
+                # color current vertex with ith color
                 color[node] = i
+                # move to next level in recursion to check for other vertices
                 if self.solve(node + 1, color, m, N, graph):
                     return True
+                # un-color the vertex while moving up in recursion
                 color[node] = 0
             i += 1
         return False

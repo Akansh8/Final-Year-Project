@@ -73,6 +73,9 @@ class PreProcess:
             print(row)
         print("\n")
         return matrix
-
+    def getAdjacencyMatrixWithString(self,binary_string):
+        n = int(self.getMatrixDimension(len(binary_string)))
+        matrix = self.populate(n, binary_string)
+        return matrix
 
 
